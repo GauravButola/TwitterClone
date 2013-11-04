@@ -1,0 +1,25 @@
+<h1>Sign up</h1>
+
+<%= form_for(@user) do |u| %>
+	<ul>
+		<% @user.errors.each do |attribute, message| %>	
+			<li><%= message %></li>
+		<% end %>	
+	</ul>
+	<p>
+	<%= u.label :name %> <br />
+	<%= u.text_field :name %>
+	</p>
+	<p>
+	<%= u.label :username %> <br />
+	<%= u.text_field :username %>
+	</p>
+	<p>
+	<%= u.label :email %> <br />
+	<%= u.text_field :email %>
+	</p>
+	<p>
+	<%= u.submit %>
+	</p>
+
+<% end %>

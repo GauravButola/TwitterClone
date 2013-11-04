@@ -1,0 +1,7 @@
+<%= link_to "Home", welcome_index_path %>
+<p>Currently registered users</p>
+<% @users.each do |user| %>
+	<p>
+	<%= link_to user.username, user_path(user) %>
+	</p>
+<%end%>
