@@ -16,3 +16,8 @@
 		<td><%= @user.image_path %></td>
 	</tr>
 </table>
+
+<% if @user.id == session[:user_id] %>
+<%= render partial: 'tweets/form' %>
+<% end %>
+<%= render partial: 'users/tweet', collection: @user.tweets.order("created_at DESC") %>

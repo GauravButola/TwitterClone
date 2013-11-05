@@ -7,6 +7,9 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+
+		@tweet = Tweet.new
+		@tweet.user_id = session[:user_id]
 	end
 
 	def new

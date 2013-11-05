@@ -1,9 +1,12 @@
 Twitterclone::Application.routes.draw do
   get "welcome/index"
 	resources :users do
+		resources :tweets
+
 		get 'login', on: :collection
 		get 'logout', on: :collection
 	end
+
 
 	root to: "welcome#index"
 	post "users/login_attempt"

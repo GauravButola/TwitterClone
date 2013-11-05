@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	has_many :tweets
 	validates :name, 
 						:presence => {:message => "You must have a name! don't you?"},
 						:length => {:minimum => 1, :maximum => 20, :message => "Name must be in 1-20 character range"}

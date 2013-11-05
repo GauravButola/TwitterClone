@@ -1,0 +1,5 @@
+<%= form_for [ @user, @tweet ] do |t| %>
+	<%= t.label "Create new tweet" %>  <br />
+	<%= t.text_area :message, :size => "50x4" %> <br />
+	<%= t.submit %>	
+<% end %>
