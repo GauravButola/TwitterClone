@@ -1,0 +1,19 @@
+<h1>Login</h1>
+
+<%= form_tag(:action => 'login_attempt') do %>
+
+	<%= flash[:error] %>
+
+	<p>
+	<p>Username</p>
+	<%= text_field_tag(:username) %>
+	</p>
+	<p>
+	<p>Password</p>
+	<%= password_field_tag(:password) %>
+	</p>
+	<p>
+	<%= submit_tag("Login") %>
+	</p>
+
+<% end %>

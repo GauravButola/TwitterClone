@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
 						:uniqueness => {:message => "Given email address is already associated with another account."},
 						:format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => "That doesn't quite look like an email, eh?"}
 
+	validates :password, 
+						:presence => {:message => "Please provide password."},
+						:length => {:minimum => 4, :maximum => 20, :message => "Password must be in 4-20 character range"}
+
 end

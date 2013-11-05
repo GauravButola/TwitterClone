@@ -1,8 +1,12 @@
 Twitterclone::Application.routes.draw do
   get "welcome/index"
-	resources :users
+	resources :users do
+		get 'login', on: :collection
+		get 'logout', on: :collection
+	end
 
 	root to: "welcome#index"
+	post "users/login_attempt"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
