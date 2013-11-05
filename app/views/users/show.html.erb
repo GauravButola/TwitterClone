@@ -1,21 +1,9 @@
-<table>
-	<tr>
-		<td>Name: </td>
-		<td><%= @user.name %></td>
-	</tr>
-	<tr>
-		<td>username: </td>
-		<td><%= @user.username %></td>
-	</tr>
-	<tr>
-		<td>Email: </td>
-		<td><%= @user.email %></td>
-	</tr>
-	<tr>
-		<td>Image: </td>
-		<td><%= @user.image_path %></td>
-	</tr>
-</table>
+<div class="user-info">
+	<%= image_tag @user.image_path, :class => "main-avatar"%> <br />
+	<%= @user.name %> <br />
+	@<%= @user.username %> <br />
+	<%= @user.email %> <br />
+</div>
 
 <% if @user.id == session[:user_id] %>
 <%= render partial: 'tweets/form' %>

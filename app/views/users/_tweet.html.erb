@@ -1,4 +1,10 @@
-<p>
-<%= tweet.message %>
-</p>
-
+<div class="tweet-box">
+	<%= image_tag tweet.user.image_path, :class => "tweet-avatar"%>
+	<div class="tweet-user">
+		<%= tweet.user.name %> 
+	</div>
+	<div class="tweet">
+		<%= tweet.message %> 
+	</div>
+</div>
+<hr />

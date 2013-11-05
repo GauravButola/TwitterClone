@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params) 
+		@user.image_path = profile_pic_upload
 		if @user.save
 			#Show user page insert is successful.
 			redirect_to @user
@@ -25,6 +26,16 @@ class UsersController < ApplicationController
 			#Stay on 'new' if record isn't saved.
 			render 'new'
 		end
+	end
+
+	def profile_pic_upload
+		uploaded_io = params[:user][:image_path]	
+		file_name = uploaded_io.original_filename
+		path = Rails.root.join('app/assets/images', 'user_profile_pics', file_name)
+		File.open(path, 'wb') do |file|
+			file.write(uploaded_io.read)
+		end
+		return "user_profile_pics/#{file_name}"
 	end
 
 	def login
