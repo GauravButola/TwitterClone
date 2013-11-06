@@ -18,4 +18,9 @@ class User < ActiveRecord::Base
 						:presence => {:message => "Please provide password."},
 						:length => {:minimum => 4, :maximum => 20, :message => "Password must be in 4-20 character range"}
 
+	# Overriding default behaviour to search by username instead of id.
+	def to_param
+		username
+	end
+
 end
