@@ -47,6 +47,9 @@ class UsersController < ApplicationController
 
 	def profile_pic_upload
 		uploaded_io = params[:user][:image_path]	
+		if !uploaded_io
+			return ""
+		end
 		file_name = uploaded_io.original_filename
 		path = Rails.root.join('app/assets/images', 'user_profile_pics', file_name)
 		File.open(path, 'wb') do |file|
