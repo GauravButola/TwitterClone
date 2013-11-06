@@ -4,7 +4,7 @@
 		<%= tweet.user.name %> 
 	</div>
 	<div class="tweet">
-		<%= tweet.message %> 
+		<%= raw make_mention_links tweet.message  %>
 	</div>
 </div>
 <hr />
