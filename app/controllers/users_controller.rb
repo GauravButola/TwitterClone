@@ -1,21 +1,5 @@
 class UsersController < ApplicationController
 	before_filter :restrict_when_logged_in, :only => [:login, :new]
-	helper_method :make_mention_links
-
-	def make_mention_links(message)
-		username_regex = /(@[^\s][\w\d]*)/
-			if(message =~ username_regex)
-				mentions = message.scan(username_regex)
-
-				mentions.each do |m|
-					user = m[0].sub('@', '')
-					#This works fine but need to somehow make it work with link_to.
-					#message = message.sub(m[0], "<%= link_to '#{m[0]}', user_path(#{user}) %>")
-					message = message.sub(m[0], "<a href='#{user}'>#{m[0]}</a>")
-				end
-			end
-		return message
-	end
 
 	def index
 		@users = User.all

@@ -4,7 +4,10 @@
 		<%= tweet.user.name %> 
 	</div>
 	<div class="tweet">
-		<%= raw make_mention_links tweet.message  %>
+		<%= 
+			# h method escapes user provided data, then links are made and posted raw.
+		raw make_mention_links h(tweet.message)
+	%>
 	</div>
 </div>
 <hr />
