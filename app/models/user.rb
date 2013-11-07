@@ -6,12 +6,12 @@ class User < ActiveRecord::Base
 
 	validates :username, 
 						:presence => {:message => "Please create a username."},
-						:uniqueness => {:message => "username already exists."},
+						:uniqueness => {:case_sensitive => false, :message => "username already exists."},
 						:length => {:minimum => 3, :maximum => 20, :message => "username must be in 3-20 character range"}
 
 	validates :email, 
 						:presence => {:message => "Email is required."},
-						:uniqueness => {:message => "Given email address is already associated with another account."},
+						:uniqueness => {:case_sensitive => false, :message => "Given email address is already associated with another account."},
 						:format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => "That doesn't quite look like an email, eh?"}
 
 	validates :password, 
